@@ -59,6 +59,18 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#listar-partner" class="nav-link">Listar Partner</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#listar-categorias" class="nav-link">Listar Categorías</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#creacion-de-invitado-b2bc" class="nav-link">Creación de invitado b2bc</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -130,6 +142,14 @@
 </tr>
 </tbody>
 </table>
+<h5 id="response">Response:</h5>
+<pre><code>Code: 200
+Content: 
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFkMjEwNDBAYS5jb20iLCJuYmYiOjE2OTc0ODc3MzIsImV4cCI6MTY5NzQ4OTUzMiwiaWF0IjoxNjk3NDg3NzMyfQ._mx7fdGe9AhnAoRMu3i6f25cxdjF_sdlu7an0bAqj_Q",
+    "token_aora": "720dd723-e594-41e7-b948-d6a5ed37439bcecjocdhqqbyzcytmcmtpykxxclkectufutxthydtphvtctmqwjspebdufmmqtdnwgteibaedizaroeviztisafatqcovmnamuzm973469296313-2698-4176-8a38-80f4d5cd2da029442938-4cf9-4f5a-9896-3dc5cfc5a0ed"
+}
+</code></pre>
 <h2 id="registro-de-partner">Registro de Partner</h2>
 <h5 id="crear-nuevo-partner">Crear nuevo partner.</h5>
 <table>
@@ -197,6 +217,613 @@
 </tr>
 </tbody>
 </table>
+<h4 id="response_1">Response</h4>
+<pre><code>Code: 200
+Content: 
+{
+    "error": false,
+    "msg": "Creación correcta.",
+    "finalizado": false,
+    "topico_id": 0
+}
+</code></pre>
+<h4 id="error-response">Error Response</h4>
+<pre><code>Code: 401 Unauthorized
+Content: 
+{
+    "error": true,
+    "msg": "Tipo de identificación no es válido"
+}
+</code></pre>
+<h2 id="listar-partner">Listar Partner</h2>
+<h5 id="obtiene-el-listado-de-los-partners">Obtiene el listado de los partners.</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Header</th>
+<th style="text-align: left;">Descripción</th>
+<th style="text-align: left;">Requerido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>aoratoken</code></td>
+<td style="text-align: left;">Es el token del usuario</td>
+<td style="text-align: left;">Si</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Bearer</th>
+<th style="text-align: left;">Descripción</th>
+<th style="text-align: left;">Requerido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>token</code></td>
+<td style="text-align: left;">Es la autenticación de tipo Bearer para el uso de cada Api</td>
+<td style="text-align: left;">Si</td>
+</tr>
+</tbody>
+</table>
+<h5 id="el-api-del-registro-del-partner-es_1">El Api del Registro del Partner es:</h5>
+<pre><code class="language-http">  GET /v1/partner/obtiene
+</code></pre>
+<h4 id="response_2">Response</h4>
+<pre><code>Code: 200
+Content: 
+[
+    {
+        "partnerId": 1,
+        "nombre": "partner X",
+        "direccion": "direccion X",
+        "identificacion": "identificacion X",
+        "tipo_identificacion": "CEDULA",
+        "fecha_Creacion": "11/10/2023 16:39",
+        "tokenAuthorization": "2DvR61rXVjg2JnYiSx1xNz1u6tjuXLOxTon7L2dZvB01I1DHdqRPg9FDLBVNR7AKUtjeAaXaUbCM8AlEpcQr39RTijwJgPHxAqgZ"
+    },
+    {
+        "partnerId": 2,
+        "nombre": "partner XY",
+        "direccion": "direccion XY",
+        "identificacion": "identificacion XY",
+        "tipo_identificacion": "RUC",
+        "fecha_Creacion": "16/10/2023 17:37",
+        "tokenAuthorization": "4D5ESOBwsoMejPdVGDCndciZ7qMdpizyl8YkKo0hUbK4yVuME8amEA8cegGmBhHJzY2l02LcMeTBRnkm5AZqIMukA6GnhOgwUBFa
+"
+    }
+]
+</code></pre>
+<h4 id="error-response_1">Error Response</h4>
+<pre><code>Code: 401 Unauthorized
+Content: 
+{
+    "error": true,
+    "msg": "Token Inválido"
+}
+</code></pre>
+<h2 id="listar-categorias">Listar Categorías</h2>
+<h5 id="obtiene-listado-de-las-categorias">Obtiene listado de las categorías.</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Header</th>
+<th style="text-align: left;">Descripción</th>
+<th style="text-align: left;">Requerido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>aoratoken</code></td>
+<td style="text-align: left;">Es el token del usuario</td>
+<td style="text-align: left;">Si</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Bearer</th>
+<th style="text-align: left;">Descripción</th>
+<th style="text-align: left;">Requerido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>token</code></td>
+<td style="text-align: left;">Es la autenticación de tipo Bearer para el uso de cada Api</td>
+<td style="text-align: left;">Si</td>
+</tr>
+</tbody>
+</table>
+<h5 id="el-api-de-listar-categorias-es">El Api de Listar Categorías es:</h5>
+<pre><code class="language-http">  GET /v1/categorias/agrupada
+</code></pre>
+<h4 id="response_3">Response</h4>
+<pre><code>Code: 200
+Content: 
+{
+    "categorias": [
+        {
+            "categoriaId": 48,
+            "descripcion": " ",
+            "titulo": "SERVICIOS MÁS PEDIDOSs",
+            "empresa": false,
+            "ruta": "http://testingecb2bc.aoraservicios.com//images/core/ffd1a0ae-7c31-4147-bfc5-d1a1d0ce41d9.jpg"
+        },
+        {
+            "categoriaId": 36,
+            "descripcion": "ELECTRICIDAD GASFITERÍA CERRAJERÍA ALBAÑILERÍA CARPINTERÍA LIMPIEZA OTRO",
+            "titulo": "HOGAR Y OFICINA",
+            "empresa": false,
+            "ruta": "http://testingecb2bc.aoraservicios.com//images/core/fb7355d9-c7eb-4cca-9bfc-451ee50f0d62.jpg"
+        },
+        {
+            "categoriaId": 37,
+            "descripcion": "AIRE ACONDICIONADO LAVADORA SECADORA COCINA REFRIGERADORA HORNO",
+            "titulo": "ELECTRODOMÉSTICOS",
+            "empresa": false,
+            "ruta": "http://testingecb2bc.aoraservicios.com//images/core/3e280a50-15e3-4ff4-8d0c-59fe975d2172.jpg"
+        },
+        {
+            "categoriaId": 38,
+            "descripcion": "CASA INTELIGENTE INTERNET COMPUTADORAS IMPRESORAS TV",
+            "titulo": "TECNOLOGÍA",
+            "empresa": false,
+            "ruta": "http://testingecb2bc.aoraservicios.com//images/core/28f074d2-d9d1-4e66-9650-516290b98522.jpg"
+        },
+        {
+            "categoriaId": 50,
+            "descripcion": "sdsd",
+            "titulo": "PRuebas",
+            "empresa": false,
+            "ruta": "http://testingecb2bc.aoraservicios.com//images/core/ba1a3ebf-9d42-4f9f-b45a-1bae0ff5e810.jpg"
+        },
+        {
+            "categoriaId": 40,
+            "descripcion": " ",
+            "titulo": "CASAS COMERCIALES",
+            "empresa": true,
+            "ruta": "http://testingecb2bc.aoraservicios.com//images/core/d6dbd481-d9b3-48fc-bb1a-f6bc67e2d97c.jpg"
+        },
+        {
+            "categoriaId": 39,
+            "descripcion": "LUBRICACIÓN BATERÍA CERRAJERÍA",
+            "titulo": "VEHÍCULOS",
+            "empresa": false,
+            "ruta": "http://testingecb2bc.aoraservicios.com//images/core/7e6fa13b-984b-439f-946f-251f9d3a6e01.jpg"
+        }
+    ]
+}
+</code></pre>
+<h4 id="error-response_2">Error Response</h4>
+<pre><code>Code: 401 Unauthorized
+Content: 
+{
+    "error": true,
+    "msg": "Token Inválido"
+}
+</code></pre>
+<h2 id="creacion-de-invitado-b2bc">Creación de invitado b2bc</h2>
+<h5 id="crea-el-invitado-cuando-accede-por-primera-vez-a-la-web">Crea el invitado cuando accede por primera vez a la web.</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Header</th>
+<th style="text-align: left;">Descripción</th>
+<th style="text-align: left;">Requerido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>aoratoken</code></td>
+<td style="text-align: left;">Es el token del usuario</td>
+<td style="text-align: left;">Si</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Bearer</th>
+<th style="text-align: left;">Descripción</th>
+<th style="text-align: left;">Requerido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>token</code></td>
+<td style="text-align: left;">Es la autenticación de tipo Bearer para el uso de cada Api</td>
+<td style="text-align: left;">Si</td>
+</tr>
+</tbody>
+</table>
+<h5 id="el-api-de-v1clienteb2bcinvitado-es">El Api de v1/clienteb2bc/invitado es:</h5>
+<pre><code class="language-http">  POST /v1/clienteb2bc/invitado
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parámetro</th>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Descripción</th>
+<th style="text-align: left;">Requerido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">so</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">El sistema operativo que está usando, en este caso se enviaría WEB</td>
+<td style="text-align: left;">Si</td>
+</tr>
+<tr>
+<td style="text-align: left;">namedevice</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Se obtiene la descripción del dispositivo</td>
+<td style="text-align: left;">Si</td>
+</tr>
+<tr>
+<td style="text-align: left;">tokendevice</td>
+<td style="text-align: left;">long</td>
+<td style="text-align: left;">El tokendevice obtenido por firebase</td>
+<td style="text-align: left;">Si</td>
+</tr>
+<tr>
+<td style="text-align: left;">tokenpartner</td>
+<td style="text-align: left;">long</td>
+<td style="text-align: left;">Este token es del api Listar Partners, con este token se relaciona el cliente a que partner está relacionado</td>
+<td style="text-align: left;">Si</td>
+</tr>
+<tr>
+<td style="text-align: left;">#### Response</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Code: 200</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Content:</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">{</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"categorias": [</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">{</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"categoriaId": 48,</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"descripcion": " ",</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"titulo": "SERVICIOS MÁS PEDIDOSs",</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"empresa": false,</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"ruta": "http://testingecb2bc.aoraservicios.com//images/core/ffd1a0ae-7c31-4147-bfc5-d1a1d0ce41d9.jpg"</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">},</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">{</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"categoriaId": 36,</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"descripcion": "ELECTRICIDAD GASFITERÍA CERRAJERÍA ALBAÑILERÍA CARPINTERÍA LIMPIEZA OTRO",</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"titulo": "HOGAR Y OFICINA",</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"empresa": false,</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"ruta": "http://testingecb2bc.aoraservicios.com//images/core/fb7355d9-c7eb-4cca-9bfc-451ee50f0d62.jpg"</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">},</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">{</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"categoriaId": 37,</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"descripcion": "AIRE ACONDICIONADO LAVADORA SECADORA COCINA REFRIGERADORA HORNO",</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"titulo": "ELECTRODOMÉSTICOS",</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"empresa": false,</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"ruta": "http://testingecb2bc.aoraservicios.com//images/core/3e280a50-15e3-4ff4-8d0c-59fe975d2172.jpg"</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">},</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">{</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"categoriaId": 38,</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"descripcion": "CASA INTELIGENTE INTERNET COMPUTADORAS IMPRESORAS TV",</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"titulo": "TECNOLOGÍA",</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"empresa": false,</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"ruta": "http://testingecb2bc.aoraservicios.com//images/core/28f074d2-d9d1-4e66-9650-516290b98522.jpg"</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">},</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">{</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"categoriaId": 50,</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"descripcion": "sdsd",</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"titulo": "PRuebas",</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"empresa": false,</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"ruta": "http://testingecb2bc.aoraservicios.com//images/core/ba1a3ebf-9d42-4f9f-b45a-1bae0ff5e810.jpg"</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">},</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">{</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"categoriaId": 40,</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"descripcion": " ",</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"titulo": "CASAS COMERCIALES",</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"empresa": true,</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"ruta": "http://testingecb2bc.aoraservicios.com//images/core/d6dbd481-d9b3-48fc-bb1a-f6bc67e2d97c.jpg"</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">},</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">{</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"categoriaId": 39,</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"descripcion": "LUBRICACIÓN BATERÍA CERRAJERÍA",</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"titulo": "VEHÍCULOS",</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"empresa": false,</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">"ruta": "http://testingecb2bc.aoraservicios.com//images/core/7e6fa13b-984b-439f-946f-251f9d3a6e01.jpg"</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">}</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">]</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">}</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="error-response_3">Error Response</h4>
+<pre><code>Code: 401 Unauthorized
+Content: 
+{
+    "error": true,
+    "msg": "Token Inválido"
+}
+</code></pre>
 <p><img alt="Logo" src="http://webprod.aoraservicios.com//images/core/407e82ac-126d-4dbc-a4b4-657a92965cd5.jpg" /></p></div>
             </div>
         </div>
@@ -280,5 +907,5 @@
 
 <!--
 MkDocs version : 1.5.3
-Build Date UTC : 2023-10-18 18:09:49.055269+00:00
+Build Date UTC : 2023-10-18 18:29:58.174085+00:00
 -->
