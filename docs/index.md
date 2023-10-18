@@ -229,6 +229,7 @@ Proyecto de integración con las distintas compañías con el fin de integrarse
 | namedevice | string  | Se obtiene la descripción del dispositivo |Si |
 | tokendevice | long  | El tokendevice obtenido por firebase |Si |
 | tokenpartner | long  | Este token es del api Listar Partners, con este token se relaciona el cliente a que partner está relacionado |Si |
+
 #### Response
     Code: 200
     Content: 
